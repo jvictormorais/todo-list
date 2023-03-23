@@ -5,37 +5,138 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo list</title>
+    <script
+      src="https://kit.fontawesome.com/29d0650de4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
   </head>
   <body>
-    <div class="side-bar">
-      <div class="logo">Todo List</div>
-      <div class="account">Your Name</div>
-      <div class="tasks-list">
-        <p>Projects</p>
-        <ul>
-          <li>item 1</li>
-          <li>item 2</li>
-          <li>item 3</li>
-          <li>item 4</li>
-        </ul>
+    <div class="container">
+      <!-- SIDE BAR -->
+
+      <div class="side-bar">
+        <div class="logo">The Todo List</div>
+        <div class="account">
+          <i class="fa-regular fa-user" style="color: #343946"></i> My Account
+        </div>
+        <div class="tasks-list">
+          <p>
+            <i class="fa-regular fa-square-check" style="color: #2969f9"></i>
+            Projects
+          </p>
+          <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+          </ul>
+        </div>
+        <div class="company">
+          <i class="fa-regular fa-building" style="color: #343946"></i> Company
+        </div>
+        <div class="contact">
+          <i class="fa-regular fa-address-book" style="color: #343946"></i>
+          Contact
+        </div>
+        <div class="settings">
+          <i class="fa-solid fa-gear" style="color: #343946"></i> Settings
+        </div>
       </div>
-      <div class="company">Company</div>
-      <div class="contact">Contact</div>
-      <div class="settings">Settings</div>
+      <div class="tasks-area">
+        <!-- HEADER -->
+
+        <div class="header">
+          <h1>Tasks</h1>
+          <button class="new-task-btn">+ New Task</button>
+        </div>
+
+        <!-- DISPLAY AREA -->
+
+        <div class="display-tasks">
+          <div class="task-card">
+            <div class="top">
+              <p id="priority">Priority: High</p>
+              <p id="date">Due Date: ??/??/????</p>
+            </div>
+            <h3 id="title">Title</h3>
+            <p id="description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam,
+              nemo. Non assumenda recusandae nam vel a sed, enim repudiandae
+              voluptatem.
+            </p>
+            <div class="bottom">
+              <div class="checkbox">
+                <input
+                  type="checkbox"
+                  id="status"
+                  name="status"
+                  value="status"
+                />
+                <label for="status"> Incomplete</label>
+              </div>
+              <div class="buttons">
+                <button class="edit-btn">
+                  <i
+                    class="fa-regular fa-pen-to-square"
+                    style="color: #343946"
+                  ></i>
+                </button>
+                <button class="del-btn">
+                  <i class="fa-regular fa-trash-can" style="color: #343946"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="tasks-area">
-      <div class="header">
-        <h1>Tasks</h1>
-        <button>+ New Task</button>
-      </div>
-      <div class="display-tasks">
-        <div class="task">
-          <p>Priority</p>
-          <p>??/??/????</p>
-          <h3>Title</h3>
-          <p>Description</p>
-          <button class="edit-btn">edit</button>
-          <button class="del-btn">del</button>
+
+    <div class="modal-container">
+      <div class="modal">
+        <form>
+          <label for="inp-title">Title</label>
+          <input id="inp-title" type="text" required />
+          <label for="inp-description">Description</label>
+          <textarea
+            id="inp-description"
+            name="story"
+            rows="5"
+            cols="33"
+          ></textarea>
+          <label for="inp-date">Due date</label>
+          <input id="inp-date" type="date" required />
+          <fieldset>
+            <legend>Priority</legend>
+            <div>
+              <input
+                type="radio"
+                id="low"
+                name="priority"
+                value="low"
+                checked
+              />
+              <label for="low">Low</label>
+              <input type="radio" id="medium" name="priority" value="medium" />
+              <label for="medium">Medium</label>
+              <input type="radio" id="high" name="priority" value="high" />
+              <label for="high">High</label>
+            </div>
+          </fieldset>
+        </form>
+        <div class="modal-btn">
+          <button>Submit</button>
+          <button>Cancel</button>
         </div>
       </div>
     </div>
