@@ -14,18 +14,29 @@ let taskDescription;
 let taskDate;
 let taskPriority;
 let newTask;
+let tasks;
 // Tasks Data
+window.addEventListener("DOMContentLoaded", checkStorage);
 
-const tasks = [
-  {
-    title: "Title",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, nemo. Non assumenda recusandae nam vel a sed, enim repudiandae voluptatem.",
-    priority: "High",
-    date: "2023-01-01",
-    status: false,
-  },
-];
+function checkStorage() {
+  if (localStorage.dbfunc !== undefined) {
+    tasks = JSON.parse(localStorage.getItem("dbfunc"));
+    createTaskCards(tasks);
+  } else {
+    tasks = [
+      {
+        title: "Title",
+        description:
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, nemo. Non assumenda recusandae nam vel a sed, enim repudiandae voluptatem.",
+        priority: "High",
+        date: "2023-01-01",
+        status: false,
+      },
+    ];
+
+    createTaskCards(tasks);
+  }
+}
 
 // Create and display HTML using an array of objects
 
@@ -76,8 +87,6 @@ function createTaskCards(listOfTasks) {
   displayTasks.innerHTML = cardsHtml;
 }
 
-createTaskCards(tasks);
-
 // Open Modal
 
 newTaskBtn.addEventListener("click", openModal);
@@ -112,7 +121,6 @@ function getUserInputs() {
 // Transfor input to object
 
 function transformToObject() {
-  console.log(taskTitle, taskDescription, taskDate, taskPriority);
   newTask = {
     title: taskTitle,
     description: taskDescription,
@@ -123,9 +131,13 @@ function transformToObject() {
 }
 
 // push data to file storage
+function setItensDB() {
+  localStorage.setItem("dbfunc", JSON.stringify(tasks));
+}
 
 function pushObjectToArray(taskName) {
   tasks.push(taskName);
+  setItensDB();
 }
 
 // reset input values
@@ -146,15 +158,6 @@ function resetValues() {
 // function submit new task
 
 function submitNewTask() {
-  console.log(
-    inpTitle.value,
-    inpDescription.value,
-    inpDate.value,
-    inpPriority.forEach((radio) => {
-      radio.checked ? "true" : "false";
-    })
-  );
-
   if (inpTitle.value && inpDescription.value && inpDate.value) {
     getUserInputs();
     transformToObject();
@@ -182,10 +185,12 @@ function searchButton(e) {
     let delIndex = e.target.dataset.index;
     tasks.splice(delIndex, 1);
     createTaskCards(tasks);
+    setItensDB();
   } else if (e.target.dataset.bubble === "marker-btn") {
     let checkIndex = e.target.dataset.index;
     tasks[checkIndex].status = !tasks[checkIndex].status;
     createTaskCards(tasks);
+    setItensDB();
   }
 }
 
