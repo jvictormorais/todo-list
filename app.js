@@ -19,49 +19,8 @@ let newTask;
 const tasks = [
   {
     title: "Title",
-    description: "Description",
-    priority: "High",
-    date: "2023-01-01",
-    status: false,
-  },
-  {
-    title: "Title",
-    description: "Description",
-    priority: "High",
-    date: "2023-01-01",
-    status: false,
-  },
-  {
-    title: "Title",
-    description: "Description",
-    priority: "High",
-    date: "2023-01-01",
-    status: false,
-  },
-  {
-    title: "Title",
-    description: "Description",
-    priority: "High",
-    date: "2023-01-01",
-    status: false,
-  },
-  {
-    title: "Title",
-    description: "Description",
-    priority: "High",
-    date: "2023-01-01",
-    status: false,
-  },
-  {
-    title: "Title",
-    description: "Description",
-    priority: "High",
-    date: "2023-01-01",
-    status: false,
-  },
-  {
-    title: "Title",
-    description: "Description",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam, nemo. Non assumenda recusandae nam vel a sed, enim repudiandae voluptatem.",
     priority: "High",
     date: "2023-01-01",
     status: false,
@@ -210,7 +169,7 @@ function submitNewTask() {
 
 submitBtn.addEventListener("click", submitNewTask);
 
-// edit task
+// edit task, delete, checkbox
 
 displayTasks.addEventListener("click", searchButton);
 
