@@ -35,12 +35,6 @@
             <i class="fa-regular fa-square-check" style="color: #2969f9"></i>
             Projects
           </p>
-          <ul>
-            <li>item 1</li>
-            <li>item 2</li>
-            <li>item 3</li>
-            <li>item 4</li>
-          </ul>
         </div>
         <div class="company">
           <i class="fa-regular fa-building" style="color: #343946"></i> Company
@@ -106,7 +100,7 @@
       <div class="modal">
         <form>
           <label for="inp-title">Title</label>
-          <input id="inp-title" type="text" required />
+          <input id="inp-title" type="text" value="" required />
           <label for="inp-description">Description</label>
           <textarea
             id="inp-description"
@@ -121,22 +115,35 @@
             <div>
               <input
                 type="radio"
+                class="radio-btn"
                 id="low"
                 name="priority"
-                value="low"
-                checked
+                value="Low"
               />
               <label for="low">Low</label>
-              <input type="radio" id="medium" name="priority" value="medium" />
+              <input
+                type="radio"
+                class="radio-btn"
+                id="medium"
+                name="priority"
+                value="Medium"
+              />
               <label for="medium">Medium</label>
-              <input type="radio" id="high" name="priority" value="high" />
+              <input
+                type="radio"
+                class="radio-btn"
+                id="high"
+                name="priority"
+                value="High"
+              />
               <label for="high">High</label>
             </div>
           </fieldset>
         </form>
         <div class="modal-btn">
-          <button>Submit</button>
-          <button>Cancel</button>
+          <button id="submit-btn">Submit</button>
+          <button id="cancel-btn">Cancel</button>
+          <button id="save-btn">Save</button>
         </div>
       </div>
     </div>
